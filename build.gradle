@@ -36,5 +36,15 @@ micronaut {
     }
 }
 
+graalvmNative {
+    binaries {
+        main {
+            var nativeImageName = System.getenv('NATIVE_IMAGE_NAME') ?: rootProject.name
+            imageName.set(nativeImageName)
+            buildArgs.add('--verbose')
+        }
+    }
+}
+
 
 
